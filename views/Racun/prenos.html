@@ -1,0 +1,80 @@
+{% extends "_global/index.html" %}
+
+{% block lastlogin %}
+	<div class="col-md-2">
+		<i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+	</div>
+	<div class="col-md-10">
+		<p>{{user.ime}} {{user.prezime}}</p>
+		<p>Poslednji Log In: {{user.poslednji_log_in}}</p>
+	</div>
+{% endblock %}
+
+{% block basicinfo %}
+	<div class="col-md-8 offset-md-5 basicinfo">
+		<p>Osnovni tekući račun</p>
+		<p>{{osnovniracun}}</p>
+		<p>{{user.ime}} {{user.prezime}}</p>
+	</div>
+{% endblock %}
+
+{% block main %}
+
+<div class="row col-md-8 offset-md-2 form-wrapper">
+	<form id='prenos-frm' action='zapocni_prenos' method='post'>
+		<div class="form-group">
+			<label>Račun na teret</label>
+			<select class="form-control" name="target_racun" id='target-racun'>
+				{% for racun in racuni %}
+					<option value="{{racun.id_racuna}}">{{ racun.broj_racuna }} ({{racun.valuta_racuna}})</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Račun u korist</label>
+			<select class="form-control" name="dest_racun" id='dest-racun'>
+				{% for racun in racuni %}
+					<option value="{{racun.id_racuna}}">{{ racun.broj_racuna }} ({{racun.valuta_racuna}})</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Iznos za prenos</label>
+			<input type="text" class="form-control" name="suma" id="suma" />
+		</div>
+		<button type="submit" class="btn btn-primary">Započni prenos</button>
+	</form>
+</div>
+
+
+{% endblock %}
+
+{% block rightpanel %}
+
+<div class="row text-center tran">
+	<h5 class="tran-h5">Arhiva prenosa</h5>
+</div>
+
+<div class="row tbl-wrapper">
+	<table class="table tran-table">
+		<thead>
+			<tr>
+				<th>Datum</th>
+				<th>Sa računa</th>
+				<th>Na račun</th>
+				<th>Iznos</th>
+			</th>
+		</thead>
+		<tbody>
+			{% for a in arhiva %}
+			<tr>
+				<td>{{a.datum_transakcije}}</td>
+				<td>{{a.sa_racuna}}</td>
+				<td>{{a.na_racun}}</td>
+				<td>{{a.iznos_transakcije}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>								
+	</table>					
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+	<head>
+		<title>EBank Aplikacija</title>
+		<link rel="stylesheet" 
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script type="text/javascript" src="frontend/javascript/main.js"></script>
+		<link rel="stylesheet" href="frontend/css/main.css">
+		<meta charset="utf-8">
+	</head>
+	
+	<body>	
+		<div class="container">
+			<div class="row info-bar">
+				<div class="col-md-8 offset-md-4 info-bar-inner">
+					<div class="row col-md-8">
+						{% block lastlogin %}
+						{% endblock %}
+					</div>
+				</div>
+			</div>			
+			<div class="row up-banner">
+				{% block basicinfo %}
+				{% endblock %}
+			</div>
+			<div class="row menu-container">
+				<div class="col-md-3 left-menu">
+					<ul style="list-style-type: none">
+						<li><a href="/ebank_app/">Stanje</a></li>
+						<li><a href="pregled_racuna">Pregled Računa</a></li>
+						<li><a href="prenos">Prenos sredstava</a></li>
+						<li><a href="nalog">Nalog</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 middle-space center-box">
+					{% block main %}
+					{% endblock %}
+				</div>
+				<div class="col-md-3 wrapper">
+					<div class="right-menu">
+						{% block rightpanel %}
+						{% endblock %}						
+					</div>
+				</div>
+			</div>
+			<div class="row fotter">
+				<div class="col-md-6 offset-md-5 social">
+					<span class="ftr-brand"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+					<span class="ftr-brand"><i class="fa fa-twitter" aria-hidden="true"></i></span>
+					<span class="ftr-brand"><i class="fa fa-linkedin" aria-hidden="true"></i></span>
+					<span class="ftr-brand"><i class="fa fa-youtube-play" aria-hidden="true"></i></span>
+				</div>
+			</div>
+		</div>								
+	</body>
+
+</html>

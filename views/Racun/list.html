@@ -1,0 +1,82 @@
+{% extends "_global/index.html" %}
+
+{% block lastlogin %}
+	<div class="col-md-2">
+		<i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+	</div>
+	<div class="col-md-10">
+		<p>{{user.ime}} {{user.prezime}}</p>
+		<p>Poslednji Log In: {{user.poslednji_log_in}}</p>
+	</div>
+{% endblock %}
+
+{% block basicinfo %}
+	<div class="col-md-8 offset-md-5 basicinfo">
+		<p>Osnovni tekući račun</p>
+		<p>{{osnovniracun}}</p>
+		<p>{{user.ime}} {{user.prezime}}</p>
+	</div>
+{% endblock %}
+
+{% block main %}
+
+<div class="row col-md-8 offset-md-2 tek-rac">
+	<select class="form-control tekuci-racuni">
+		{% for racun in racuni %}
+			<option value="{{racun.id_racuna}}">{{ racun.broj_racuna }} ({{racun.valuta_racuna}})</option>
+		{% endfor %}
+	</select>
+</div>					
+
+<div class="row racuni-tbl-wrapper">
+	<table class="table racuni-tbl">
+		<thead>
+			<tr>
+				<th>Tip računa</th>
+				<th>Valuta računa</th>
+				<th>Datum otvaranja</th>
+				<th>Trenutno stanje</th>
+			</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td id='tbl-tip'>{{racuni[0].tip_racuna}}</td>
+				<td id='tbl-valuta'>{{racuni[0].valuta_racuna}}</td>
+				<td id='tbl-datum'>{{racuni[0].datum_kreacije}}</td>
+				<td id='tbl-stanje'>{{stanje}}</td>
+			</tr>
+		</tbody>								
+	</table>	
+</div>
+
+{% endblock %}
+
+{% block rightpanel %}
+
+<div class="row text-center tran">
+	<h5 class="tran-h5">Transakcije</h5>
+</div>
+
+<div class="row tbl-wrapper">
+	<table id='tran-tbl' class="table tran-table">
+		<thead>
+			<tr>
+				<th>Datum</th>
+				<th>Opis</th>
+				<th>Iznos</th>
+			</th>
+		</thead>
+		<tbody>
+			{% for t in transakcije %}
+				<tr>
+					<td>{{t.datum_transakcije}}</td>
+					<td>{{t.opis}}</td>
+					<td>{{t.iznos_transakcije}}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+		
+	</table>					
+</div>				
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{
+    "name": "milorad/ebank_app",
+    "description": "E bank app",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Milorad",
+            "email": "miloradp92@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.11"
+    },
+	"autoload": {
+		"psr-4": {
+			"App\\": ""
+		}
+	}
+}

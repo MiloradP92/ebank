@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /ebank_app
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /ebank_app/index.php?URL=$1 [L]

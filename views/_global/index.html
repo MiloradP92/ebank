@@ -15,11 +15,14 @@
 	<body>	
 		<div class="container">
 			<div class="row info-bar">
-				<div class="col-md-8 offset-md-4 info-bar-inner">
-					<div class="row col-md-8">
+				<div class="col-md-8 info-bar-inner">
+					<div class="row col-md-7 pull-right">
 						{% block lastlogin %}
 						{% endblock %}
 					</div>
+				</div>
+				<div class="col-md-4 sign-out">
+					<div class="pull-right"><a id="log-out-lnk" href="/logout"><i class="fa fa-power-off fa-3x" aria-hidden="true"></i></a></div>
 				</div>
 			</div>			
 			<div class="row up-banner">

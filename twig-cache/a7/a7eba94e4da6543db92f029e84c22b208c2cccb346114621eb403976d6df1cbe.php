@@ -25,6 +25,9 @@ class __TwigTemplate_c5d2ef82431b8ebab5906acba77d57801be5fda5f0bd51a5d1b36547523
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
+            'lastlogin' => [$this, 'block_lastlogin'],
+            'basicinfo' => [$this, 'block_basicinfo'],
+            'rightpanel' => [$this, 'block_rightpanel'],
             'main' => [$this, 'block_main'],
         ];
     }
@@ -43,17 +46,47 @@ class __TwigTemplate_c5d2ef82431b8ebab5906acba77d57801be5fda5f0bd51a5d1b36547523
     }
 
     // line 3
+    public function block_lastlogin($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+    }
+
+    // line 6
+    public function block_basicinfo($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+    }
+
+    // line 9
+    public function block_rightpanel($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+    }
+
+    // line 12
     public function block_main($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 4
-        echo "    <div>
-        <form method=\"post\" action=\"trylogin\">
-            Username: <input type=\"text\" name=\"username\"><br>
-            Password: <input type=\"password\" name=\"password\"><br>
-            <button type=\"submit\">Log in</button>
-        </form>
-    </div>
+        // line 13
+        echo "<form action=\"login\" method=\"POST\">
+\t<div>
+\t\t<label for=\"input_email\">Email:</label>
+\t\t<input type=\"email\" id=\"input_email\" name=\"login_email\" required placeholder=\"Unesite svoju adresu e-poste\">
+\t</div>
+
+\t<div>
+\t\t<label for=\"input_lozinka\">Lozinka:</label>
+\t\t<input type=\"password\" id=\"input_password\" name=\"login_password\" required placeholder=\"Unesite svoju lozinku\">\t\t
+\t</div>
+\t
+\t<div>
+\t\t<button type=\"submit\">
+\t\t\tLogin
+\t\t</button>
+\t</div>
+\t
+</form>
+
 ";
     }
 
@@ -69,7 +102,7 @@ class __TwigTemplate_c5d2ef82431b8ebab5906acba77d57801be5fda5f0bd51a5d1b36547523
 
     public function getDebugInfo()
     {
-        return array (  50 => 4,  46 => 3,  35 => 1,);
+        return array (  71 => 13,  67 => 12,  61 => 9,  55 => 6,  49 => 3,  38 => 1,);
     }
 
     public function getSourceContext()

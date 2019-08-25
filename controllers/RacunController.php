@@ -7,7 +7,7 @@
 	use App\Models\KorisnikModel;
 	use App\Core\Controller;
 
-	class RacunController extends Controller
+	class RacunController extends \App\Core\Role\UserRoleController
 	{
 		public function listaRacuna()
 		{

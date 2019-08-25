@@ -64,7 +64,7 @@ class __TwigTemplate_73b66a9a321e4d53fa1b74352f2cdc178dc88c70f7c0cde055c87bb7a55
         echo "\t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t\t<div class=\"col-md-4 sign-out\">
-\t\t\t\t\t<div class=\"pull-right\"><a id=\"log-out-lnk\" href=\"/logout\"><i class=\"fa fa-power-off fa-3x\" aria-hidden=\"true\"></i></a></div>
+\t\t\t\t\t<div class=\"pull-right\"><a id=\"log-out-lnk\" href=\"logout\"><i class=\"fa fa-power-off fa-3x\" aria-hidden=\"true\"></i></a></div>
 \t\t\t\t</div>
 \t\t\t</div>\t\t\t
 \t\t\t<div class=\"row up-banner\">

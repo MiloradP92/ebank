@@ -46,10 +46,18 @@
 				return;				
 			}			
 			
-			$this->getSession()->put('user_id', $user->id);
-			$this->getSession()->save();
+			$this->getSession()->put('user_id', $user->korisnik_id);
+			$this->getSession()->save();			
 			
 			$this->redirect('/ebank_app');
+		}
+		
+		public function getLogout()
+		{
+			$this->getSession()->put('user_id', null);
+			$this->getSession()->save();
+			
+			$this->redirect('login');
 		}
 		
 	}

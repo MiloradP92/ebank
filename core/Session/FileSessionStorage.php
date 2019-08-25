@@ -14,7 +14,7 @@
 		public function save(string $sessionId, string $sessionData)
 		{
 			$sessionFileName = $this->sessionPath . $sessionId . '.json';
-			file_put_content($sessionFileName, $sessionData);
+			file_put_contents($sessionFileName, $sessionData);
 		}
 
 		public function load(string $sessionId): string
@@ -25,7 +25,7 @@
 				return  '{}';
 			}
 
-			return file_get_content($sessionFileName);
+			return file_get_contents($sessionFileName);
 		}
 
 		public function delete(string $sessionId)

@@ -46,12 +46,16 @@
 
 	$sessionStorageClassName = Configuration::SESSION_STORAGE;
 	$sessionStorageConstructorArguments = Configuration::SESSION_STORAGE_DATA;
-	$sessionStorage = new $sessionStorageClassName(...$sessionStorageConstructorArguments);
+	$sessionStorage = new $sessionStorageClassName(...$sessionStorageConstructorArguments);	
+	
 	$session = new Session($sessionStorage, Configuration::SESSION_LIFETIME);
 	$session->setFingerprintProvider($fingerprintProvider);
 	$controller->setSession($session);
-
+	$controller->getSession()->reload();
+	
+	$controller->__pre();
 	call_user_func_array([$controller, $route->getMethodName()], $arguments);
+	$controller->getSession()->save();
 
 	$data = $controller->getData();
 

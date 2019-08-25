@@ -74,7 +74,7 @@ class __TwigTemplate_73b66a9a321e4d53fa1b74352f2cdc178dc88c70f7c0cde055c87bb7a55
 \t\t\t\t<div class=\"col-md-3 left-menu\">
 \t\t\t\t\t<ul style=\"list-style-type: none\">
 \t\t\t\t\t\t<li><a href=\"/ebank_app/\">Stanje</a></li>
-\t\t\t\t\t\t<li><a href=\"pregled_racuna\">Pregled Računa</a></li>
+\t\t\t\t\t\t<li><a href=\"listaRacuna\">Pregled Računa</a></li>
 \t\t\t\t\t\t<li><a href=\"prenos\">Prenos sredstava</a></li>
 \t\t\t\t\t\t<li><a href=\"nalog\">Nalog</a></li>
 \t\t\t\t\t</ul>

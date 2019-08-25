@@ -35,8 +35,8 @@
 		public function getById(int $id)
 		{
 			$tableName = $this->getTableName();
-			$sql = 'SELECT * FROM ' . $tableName . ' WHERE ' . $tableName . '_id = ?;';
-
+			$sql = 'SELECT * FROM ' . $tableName . ' WHERE ' . $tableName . '_id = ?;';			
+			
 			$prep = $this->dbc->getConnection()->prepare($sql);
 			$res = $prep->execute([$id]);
 			$item = NULL;

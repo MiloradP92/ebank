@@ -4,19 +4,19 @@
 
 	use App\Core\DatabaseConnection;
 	use App\Models\RacunModel;
-	use App\Models\UserModel;
+	use App\Models\KorisnikModel;
 	use App\Core\Controller;
 
 	class RacunController extends Controller
 	{
-		public function list()
+		public function listaRacuna()
 		{
 			$racunModel = new RacunModel($this->getDatabaseConnection());
 			$racuni = $racunModel->getAllById(1);
 
 			$transakcije = $racunModel->getTransactionsByAccountId($racunModel->getDefaultAccountId(1));	
 
-			$userModel = new UserModel($this->getDatabaseConnection());
+			$userModel = new KorisnikModel($this->getDatabaseConnection());
 			$user = $userModel->getById(1);
 			$osnovniRacun = $racunModel->getById($racunModel->getDefaultAccountId(1));
 
@@ -33,7 +33,7 @@
 			$racuni = $racunModel->getAllById(1);
 			$arhiva = $racunModel->getTransferArchive(1);
 
-			$userModel = new UserModel($this->getDatabaseConnection());
+			$userModel = new KorisnikModel($this->getDatabaseConnection());
 			$user = $userModel->getById(1);
 			$osnovniRacun = $racunModel->getById($racunModel->getDefaultAccountId(1));
 			
@@ -52,7 +52,7 @@
 			try
 			{
 				$racunModel = new RacunModel($this->getDatabaseConnection());
-				$userModel = new UserModel($this->getDatabaseConnection());
+				$userModel = new KorisnikModel($this->getDatabaseConnection());
 				$user = $userModel->getById(1);
 				$osnovniRacun = $racunModel->getById($racunModel->getDefaultAccountId(1));
 				$this->set('user', $user);

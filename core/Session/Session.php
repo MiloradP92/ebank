@@ -16,19 +16,19 @@
 		{
 			$this->fingerprintProvider = null;
 
-			$this->storage = $sessionStorage;
-			$this->data = (object) [];
+			$this->sessionStorage = $sessionStorage;
+			$this->sessionData = (object) [];
 
 			$sessionId = filter_input(INPUT_COOKIE, 'APPSESSION', FILTER_SANITIZE_STRING);
-			$sessionId = \preg_replace('|[^A-z0-9]|', '', $sessionId);
+			$sessionId = \preg_replace('|[^A-z0-9]|', '', $sessionId);			
 
 			if (\strlen($sessionId) !== 32) {
 				$sessionId = $this->generateSessionId();
 			}
 
-			$this->id = $sessionId;
+			$this->sessionId = $sessionId;
 
-			setcookie('APPSESSION', $this->id, time()+24*60*60, '/');
+			setcookie('APPSESSION', $this->sessionId, time()+24*60*60, '/');
 		}
 
 		public function setFingerprintProvider(FingerprintProvider $fp)
@@ -49,7 +49,7 @@
 		}
 
 		public function put(string $key, $value)
-		{
+		{			
 			$this->sessionData->$key = $value;
 		}
 
@@ -82,16 +82,17 @@
 			$this->sessionData->__fingerprint = $fingerprint;
 
 			$jsonData = \json_encode($this->sessionData);
-			$this->SessionStorage->save($this->sessionId, $jsonData);
+			
+			$this->sessionStorage->save($this->sessionId, $jsonData);
 			setcookie('APPSESSION', $this->sessionId, time() * $this->sessionLife);
 		}
 
 		public function reload()
 		{
-			$jsonData = $this->SessionStorage->load($this->sessionId);
+			$jsonData = $this->sessionStorage->load($this->sessionId);
 			$restoredData = \json_decode($jsonData);
 
-			if (!restoredData)
+			if (!$restoredData)
 			{
 				$this->sessionData = (object) [];
 				return;

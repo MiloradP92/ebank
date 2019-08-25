@@ -1,0 +1,61 @@
+{% extends "_global/index.html" %}
+
+{% block lastlogin %}
+	<div class="col-md-2">
+		<i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+	</div>
+	<div class="col-md-10">
+		<p>{{user.ime}} {{user.prezime}}</p>
+		<p>Poslednji Log In: {{user.poslednji_log_in}}</p>
+	</div>
+{% endblock %}
+
+{% block basicinfo %}
+	<div class="col-md-8 offset-md-5 basicinfo">
+		<p>Osnovni tekući račun</p>
+		<p>{{osnovniracun}}</p>
+		<p>{{user.ime}} {{user.prezime}}</p>
+	</div>
+{% endblock %}
+
+{% block main %}
+
+<div class="text-center osnovno-stanje">
+	<p>Stanje na osnovnom računu</p>
+	<p style="font-size: 25px;">{{stanje}}<p>
+	<hr />
+	<p>RSD</p>
+</div>
+
+{% endblock %}
+
+{% block rightpanel %}
+
+<div class="row text-center tran">
+	<h5 class="tran-h5">Transakcije (osnovni račun)</h5>
+</div>
+
+<div class="row tbl-wrapper">
+	<table id='tran-tbl' class="table tran-table">
+		<thead>
+			<tr>
+				<th>Datum</th>
+				<th>Opis</th>
+				<th>Iznos</th>
+			</th>
+		</thead>
+		<tbody>
+			{% for t in transakcije %}
+				<tr>
+					<td>{{t.datum_transakcije}}</td>
+					<td>{{t.opis}}</td>
+					<td>{{t.iznos_transakcije}}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+		
+	</table>					
+</div>				
+
+{% endblock %}
+

@@ -11,11 +11,13 @@
 	{
 		public function index()
 		{
+			$userId = $this->getSession()->get('user_id', null);
+
 			$racunModel = new RacunModel($this->getDatabaseConnection());
 			$userModel = new KorisnikModel($this->getDatabaseConnection());
 
-			$user = $userModel->getById(1);
-			$osnovniRacun = $racunModel->getById($racunModel->getDefaultAccountId(1));
+			$user = $userModel->getById($userId);
+			$osnovniRacun = $racunModel->getById($racunModel->getDefaultAccountId($userId));
 
 			$this->set('user', $user);
 			$this->set('osnovniracun', $osnovniRacun->broj_racuna);

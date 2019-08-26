@@ -11,13 +11,14 @@
 	{
 		public function index()
 		{
+			$userId = $this->getSession()->get('user_id', null);
 			$racunModel = new RacunModel($this->getDatabaseConnection());
-			$stanje = $racunModel->izracunajStanjePoRacunu($racunModel->getDefaultAccountId(1));
-			$transakcije = $racunModel->getTransactionsByAccountId($racunModel->getDefaultAccountId(1));
+			$stanje = $racunModel->izracunajStanjePoRacunu($racunModel->getDefaultAccountId($userId));
+			$transakcije = $racunModel->getTransactionsByAccountId($racunModel->getDefaultAccountId($userId));
 
 			$userModel = new KorisnikModel($this->getDatabaseConnection());
-			$user = $userModel->getById(1);
-			$osnovniRacun = $racunModel->getById($racunModel->getDefaultAccountId(1));
+			$user = $userModel->getById($userId);
+			$osnovniRacun = $racunModel->getById($racunModel->getDefaultAccountId($userId));
 
 			$this->set('stanje', $stanje);
 			$this->set('transakcije', $transakcije);

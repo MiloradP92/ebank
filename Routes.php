@@ -1,7 +1,7 @@
 <?php
 
 	return [
-		App\Core\Route::get('|^pregled_racuna$|', 'Racun', 'listaRacuna'),
+		App\Core\Route::get('|^listaRacuna$|', 'Racun', 'listaRacuna'),
 		App\Core\Route::get('|^prenos$|', 'Racun', 'prenos'),
 		App\Core\Route::post('|^zapocni_prenos$|', 'Racun', 'zapocniPrenos'),
 		App\Core\Route::get('|^nalog$|', 'Nalog', 'index'),

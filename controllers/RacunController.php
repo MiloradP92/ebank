@@ -11,17 +11,19 @@
 	{
 		public function listaRacuna()
 		{
-			$racunModel = new RacunModel($this->getDatabaseConnection());
-			$racuni = $racunModel->getAllById(1);
+			$userId = $this->getSession()->get('user_id', null);
 
-			$transakcije = $racunModel->getTransactionsByAccountId($racunModel->getDefaultAccountId(1));	
+			$racunModel = new RacunModel($this->getDatabaseConnection());
+			$racuni = $racunModel->getAllById($userId);
+
+			$transakcije = $racunModel->getTransactionsByAccountId($racunModel->getDefaultAccountId($userId));	
 
 			$userModel = new KorisnikModel($this->getDatabaseConnection());
-			$user = $userModel->getById(1);
-			$osnovniRacun = $racunModel->getById($racunModel->getDefaultAccountId(1));
+			$user = $userModel->getById($userId);
+			$osnovniRacun = $racunModel->getById($racunModel->getDefaultAccountId($userId));
 
 			$this->set('racuni', $racuni);
-			$this->set('stanje', $racunModel->izracunajStanjePoRacunu($racunModel->getDefaultAccountId(1)));
+			$this->set('stanje', $racunModel->izracunajStanjePoRacunu($racunModel->getDefaultAccountId($userId)));
 			$this->set('transakcije', $transakcije);
 			$this->set('user', $user);
 			$this->set('osnovniracun', $osnovniRacun->broj_racuna);
@@ -29,13 +31,15 @@
 
 		public function prenos()
 		{
+			$userId = $this->getSession()->get('user_id', null);
+			
 			$racunModel = new RacunModel($this->getDatabaseConnection());
-			$racuni = $racunModel->getAllById(1);
-			$arhiva = $racunModel->getTransferArchive(1);
+			$racuni = $racunModel->getAllById($userId);
+			$arhiva = $racunModel->getTransferArchive($userId);
 
 			$userModel = new KorisnikModel($this->getDatabaseConnection());
-			$user = $userModel->getById(1);
-			$osnovniRacun = $racunModel->getById($racunModel->getDefaultAccountId(1));
+			$user = $userModel->getById($userId);
+			$osnovniRacun = $racunModel->getById($racunModel->getDefaultAccountId($userId));
 			
 			$this->set('racuni', $racuni);
 			$this->set('arhiva', $arhiva);
@@ -45,6 +49,8 @@
 
 		public function zapocniPrenos()
 		{
+			$userId = $this->getSession()->get('user_id', null);
+			
 			$target_racun = filter_input(INPUT_POST, 'target_racun', FILTER_SANITIZE_NUMBER_INT);
 	        $dest_racun = filter_input(INPUT_POST, 'dest_racun', FILTER_SANITIZE_NUMBER_INT);
 			$suma = filter_input(INPUT_POST, 'suma', FILTER_SANITIZE_NUMBER_FLOAT);
@@ -53,8 +59,8 @@
 			{
 				$racunModel = new RacunModel($this->getDatabaseConnection());
 				$userModel = new KorisnikModel($this->getDatabaseConnection());
-				$user = $userModel->getById(1);
-				$osnovniRacun = $racunModel->getById($racunModel->getDefaultAccountId(1));
+				$user = $userModel->getById($userId);
+				$osnovniRacun = $racunModel->getById($racunModel->getDefaultAccountId($userId));
 				$this->set('user', $user);
 				$this->set('osnovniracun', $osnovniRacun->broj_racuna);
 

@@ -7,6 +7,7 @@
 		App\Core\Route::get('|^nalog$|', 'Nalog', 'index'),
 		App\Core\Route::get('|^login$|', 'Main', 'getLogin'),
 		App\Core\Route::post('|^login$|', 'Main', 'postLogin'),
+		App\Core\Route::get('|^logout$|', 'Main', 'getLogout'),
 		App\Core\Route::get('|^profile$|', 'UserDashboard', 'index'),
 
 		App\Core\Route::get('|^api/racun/([0-9]+)/?$|', 'RacunAPI', 'preuzmiInfoORacunu'),

@@ -53,7 +53,7 @@ class __TwigTemplate_bf9089b330b3307159796fcc810850916e5bd9a9120011366a074197b6e
         echo "\t<div class=\"col-md-2\">
 \t\t<i class=\"fa fa-user-circle-o fa-3x\" aria-hidden=\"true\"></i>
 \t</div>
-\t<div class=\"col-md-10\">
+\t<div class=\"col-md-8\">
 \t\t<p>";
         // line 8
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "ime", [], "any", false, false, false, 8), "html", null, true);

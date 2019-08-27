@@ -55,20 +55,23 @@ class __TwigTemplate_73b66a9a321e4d53fa1b74352f2cdc178dc88c70f7c0cde055c87bb7a55
 \t<body>\t
 \t\t<div class=\"container\">
 \t\t\t<div class=\"row info-bar\">
-\t\t\t\t<div class=\"col-md-8 offset-md-4 info-bar-inner\">
-\t\t\t\t\t<div class=\"row col-md-8\">
+\t\t\t\t<div class=\"col-md-8 info-bar-inner\">
+\t\t\t\t\t<div class=\"row col-md-7 pull-right\">
 \t\t\t\t\t\t";
         // line 20
         $this->displayBlock('lastlogin', $context, $blocks);
         // line 22
         echo "\t\t\t\t\t</div>
 \t\t\t\t</div>
+\t\t\t\t<div class=\"col-md-4 sign-out\">
+\t\t\t\t\t<div class=\"pull-right\"><a id=\"log-out-lnk\" href=\"logout\"><i class=\"fa fa-power-off fa-3x\" aria-hidden=\"true\"></i></a></div>
+\t\t\t\t</div>
 \t\t\t</div>\t\t\t
 \t\t\t<div class=\"row up-banner\">
 \t\t\t\t";
-        // line 26
+        // line 29
         $this->displayBlock('basicinfo', $context, $blocks);
-        // line 28
+        // line 31
         echo "\t\t\t</div>
 \t\t\t<div class=\"row menu-container\">
 \t\t\t\t<div class=\"col-md-3 left-menu\">
@@ -81,16 +84,16 @@ class __TwigTemplate_73b66a9a321e4d53fa1b74352f2cdc178dc88c70f7c0cde055c87bb7a55
 \t\t\t\t</div>
 \t\t\t\t<div class=\"col-md-6 middle-space center-box\">
 \t\t\t\t\t";
-        // line 39
+        // line 42
         $this->displayBlock('main', $context, $blocks);
-        // line 41
+        // line 44
         echo "\t\t\t\t</div>
 \t\t\t\t<div class=\"col-md-3 wrapper\">
 \t\t\t\t\t<div class=\"right-menu\">
 \t\t\t\t\t\t";
-        // line 44
+        // line 47
         $this->displayBlock('rightpanel', $context, $blocks);
-        // line 45
+        // line 48
         echo "\t\t\t\t\t\t
 \t\t\t\t\t</div>
 \t\t\t\t</div>
@@ -117,27 +120,27 @@ class __TwigTemplate_73b66a9a321e4d53fa1b74352f2cdc178dc88c70f7c0cde055c87bb7a55
         echo "\t\t\t\t\t\t";
     }
 
-    // line 26
+    // line 29
     public function block_basicinfo($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 27
+        // line 30
         echo "\t\t\t\t";
     }
 
-    // line 39
+    // line 42
     public function block_main($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 40
+        // line 43
         echo "\t\t\t\t\t";
     }
 
-    // line 44
+    // line 47
     public function block_rightpanel($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 45
+        // line 48
         echo "\t\t\t\t\t\t";
     }
 
@@ -148,7 +151,7 @@ class __TwigTemplate_73b66a9a321e4d53fa1b74352f2cdc178dc88c70f7c0cde055c87bb7a55
 
     public function getDebugInfo()
     {
-        return array (  141 => 45,  137 => 44,  133 => 40,  129 => 39,  125 => 27,  121 => 26,  117 => 21,  113 => 20,  94 => 45,  92 => 44,  87 => 41,  85 => 39,  72 => 28,  70 => 26,  64 => 22,  62 => 20,  41 => 1,);
+        return array (  144 => 48,  140 => 47,  136 => 43,  132 => 42,  128 => 30,  124 => 29,  120 => 21,  116 => 20,  97 => 48,  95 => 47,  90 => 44,  88 => 42,  75 => 31,  73 => 29,  64 => 22,  62 => 20,  41 => 1,);
     }
 
     public function getSourceContext()

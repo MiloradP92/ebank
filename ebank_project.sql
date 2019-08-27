@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2019 at 10:36 AM
+-- Generation Time: Aug 27, 2019 at 10:46 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -29,22 +29,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `korisnik` (
-  `id` int(11) NOT NULL,
+  `korisnik_id` int(11) NOT NULL,
   `jmbg` varchar(13) NOT NULL,
   `ime` varchar(30) NOT NULL,
   `prezime` varchar(30) NOT NULL,
   `telefon` varchar(20) DEFAULT NULL,
   `email` varchar(20) NOT NULL,
   `datum_prijave` date NOT NULL,
-  `poslednji_log_in` date DEFAULT NULL
+  `poslednji_log_in` date DEFAULT NULL,
+  `password_hash` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `korisnik`
 --
 
-INSERT INTO `korisnik` (`id`, `jmbg`, `ime`, `prezime`, `telefon`, `email`, `datum_prijave`, `poslednji_log_in`) VALUES
-(1, '1201992190034', 'Milorad', 'Petrovic', '064123324', 'milorad@gmail.com', '2019-03-03', '2019-07-04');
+INSERT INTO `korisnik` (`korisnik_id`, `jmbg`, `ime`, `prezime`, `telefon`, `email`, `datum_prijave`, `poslednji_log_in`, `password_hash`) VALUES
+(1, '1201992190034', 'Milorad', 'Petrovic', '064123324', 'milorad@gmail.com', '2019-03-03', '2019-07-04', '$2y$10$7J1h2RDAoE2XBU3yoYjm4.dNri4IWTL1XWwH9n9xi/yd.4AGPnkeq');
 
 -- --------------------------------------------------------
 
@@ -68,6 +69,18 @@ INSERT INTO `kurs` (`id`, `id_valute`, `datum`, `iznos`) VALUES
 (2, 2, '2019-07-04', '118.50'),
 (3, 3, '2019-07-04', '104.50'),
 (4, 4, '2019-07-04', '90.43');
+
+--
+-- Triggers `kurs`
+--
+DELIMITER $$
+CREATE TRIGGER `negativni_kurs` BEFORE INSERT ON `kurs` FOR EACH ROW BEGIN
+	if new.iznos < 0 THEN
+   		SIGNAL SQLSTATE '45000' set MESSAGE_TEXT = 'Kurs ne moze biti negativan!';
+    end if;
+end
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -159,7 +172,27 @@ INSERT INTO `transakcije` (`id`, `id_racuna`, `iznos_transakcije`, `opis`, `tip_
 (3, 2, '100.00', 'interni prenos', 3, '2019-06-18', 1, '11850.00'),
 (4, 2, '10000.00', 'Priliv iz ino', 2, '2019-05-13', NULL, NULL),
 (7, 2, '100.00', 'interni prenos', 3, '2019-07-04', 1, '11850.00'),
-(9, 1, '11850.00', 'interni prenos', 3, '2019-07-04', 2, '100.00');
+(9, 1, '5000.00', 'interni prenos', 3, '2019-07-04', 2, '100.00');
+
+--
+-- Triggers `transakcije`
+--
+DELIMITER $$
+CREATE TRIGGER `negativni_prenosi_insert` BEFORE INSERT ON `transakcije` FOR EACH ROW BEGIN
+	if new.iznos_transakcije < 0 THEN
+   		SIGNAL SQLSTATE '45000' set MESSAGE_TEXT = 'Negativni prenosi nisu dozvoljeni!';
+    end if;
+end
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `negativni_prenosi_update` BEFORE UPDATE ON `transakcije` FOR EACH ROW BEGIN
+	if new.iznos_transakcije < 0 THEN
+   		SIGNAL SQLSTATE '45000' set MESSAGE_TEXT = 'Negativni prenosi nisu dozvoljeni!';
+    end if;
+end
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -190,7 +223,7 @@ INSERT INTO `valuta` (`id`, `opis`) VALUES
 -- Indexes for table `korisnik`
 --
 ALTER TABLE `korisnik`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`korisnik_id`);
 
 --
 -- Indexes for table `kurs`
@@ -243,7 +276,7 @@ ALTER TABLE `valuta`
 -- AUTO_INCREMENT for table `korisnik`
 --
 ALTER TABLE `korisnik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `korisnik_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `kurs`
@@ -277,7 +310,7 @@ ALTER TABLE `kurs`
 -- Constraints for table `racun`
 --
 ALTER TABLE `racun`
-  ADD CONSTRAINT `fk_racun_korisnik` FOREIGN KEY (`korisnicki_id`) REFERENCES `korisnik` (`id`),
+  ADD CONSTRAINT `fk_racun_korisnik` FOREIGN KEY (`korisnicki_id`) REFERENCES `korisnik` (`korisnik_id`),
   ADD CONSTRAINT `fk_racun_tip_racuna` FOREIGN KEY (`tip_racuna`) REFERENCES `tip_racuna` (`id`),
   ADD CONSTRAINT `fk_racun_valuta` FOREIGN KEY (`valuta_racuna`) REFERENCES `valuta` (`id`);
 

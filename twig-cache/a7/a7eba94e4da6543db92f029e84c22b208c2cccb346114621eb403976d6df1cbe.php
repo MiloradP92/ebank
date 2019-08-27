@@ -68,22 +68,22 @@ class __TwigTemplate_c5d2ef82431b8ebab5906acba77d57801be5fda5f0bd51a5d1b36547523
     {
         $macros = $this->macros;
         // line 13
-        echo "<form action=\"login\" method=\"POST\">
-\t<div>
+        echo "<form class=\"form-horizontal\" action=\"login\" method=\"POST\">
+\t<div class=\"form-group\">
 \t\t<label for=\"input_email\">Email:</label>
-\t\t<input type=\"email\" id=\"input_email\" name=\"login_email\" required placeholder=\"Unesite svoju adresu e-poste\">
+\t\t<input class=\"form-control\" type=\"email\" id=\"input_email\" name=\"login_email\" required
+\t\tplaceholder=\"Unesite svoju adresu e-poste\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}\$\"
+\t\ttitle=\"Uneta e-mail adresa nije u validnom formatu!\">
 \t</div>
 
-\t<div>
+\t<div class=\"form-group\">
 \t\t<label for=\"input_lozinka\">Lozinka:</label>
-\t\t<input type=\"password\" id=\"input_password\" name=\"login_password\" required placeholder=\"Unesite svoju lozinku\">\t\t
+\t\t<input class=\"form-control\" type=\"password\" id=\"input_password\" name=\"login_password\" required placeholder=\"Unesite svoju lozinku\">\t\t
 \t</div>
 \t
-\t<div>
-\t\t<button type=\"submit\">
-\t\t\tLogin
-\t\t</button>
-\t</div>
+\t<button class=\"btn btn-primary\" type=\"submit\">
+\t\tLogin
+\t</button>
 \t
 </form>
 

@@ -10,22 +10,22 @@
 {% endblock %}
 
 {% block main %}
-<form action="login" method="POST">
-	<div>
+<form class="form-horizontal" action="login" method="POST">
+	<div class="form-group">
 		<label for="input_email">Email:</label>
-		<input type="email" id="input_email" name="login_email" required placeholder="Unesite svoju adresu e-poste">
+		<input class="form-control" type="email" id="input_email" name="login_email" required
+		placeholder="Unesite svoju adresu e-poste" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+		title="Uneta e-mail adresa nije u validnom formatu!">
 	</div>
 
-	<div>
+	<div class="form-group">
 		<label for="input_lozinka">Lozinka:</label>
-		<input type="password" id="input_password" name="login_password" required placeholder="Unesite svoju lozinku">		
+		<input class="form-control" type="password" id="input_password" name="login_password" required placeholder="Unesite svoju lozinku">		
 	</div>
 	
-	<div>
-		<button type="submit">
-			Login
-		</button>
-	</div>
+	<button class="btn btn-primary" type="submit">
+		Login
+	</button>
 	
 </form>
 

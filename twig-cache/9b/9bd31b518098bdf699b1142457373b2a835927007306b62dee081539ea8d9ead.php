@@ -147,7 +147,7 @@ class __TwigTemplate_a61749177d71f639eef74c72f0aad64dfc4b49c3a4b46adbec46b40bda8
 \t\t</div>
 \t\t<div class=\"form-group\">
 \t\t\t<label>Iznos za prenos</label>
-\t\t\t<input type=\"text\" class=\"form-control\" name=\"suma\" id=\"suma\" />
+\t\t\t<input type=\"number\" class=\"form-control\" name=\"suma\" id=\"suma\" />
 \t\t</div>
 \t\t<button type=\"submit\" class=\"btn btn-primary\">Započni prenos</button>
 \t</form>

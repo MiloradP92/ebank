@@ -63,7 +63,7 @@ class __TwigTemplate_a61749177d71f639eef74c72f0aad64dfc4b49c3a4b46adbec46b40bda8
         echo "</p>
 \t\t\t<p>Poslednji log in: ";
         // line 10
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "poslednji_log_in", [], "any", false, false, false, 10), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "poslednji_log_in_at", [], "any", false, false, false, 10), "html", null, true);
         echo "</p>\t
 \t\t</div>
 \t</div>
@@ -190,7 +190,7 @@ class __TwigTemplate_a61749177d71f639eef74c72f0aad64dfc4b49c3a4b46adbec46b40bda8
             echo "\t\t\t\t<tr>
 \t\t\t\t\t<td>";
             // line 74
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["a"], "datum_transakcije", [], "any", false, false, false, 74), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["a"], "datum_transakcije_at", [], "any", false, false, false, 74), "html", null, true);
             echo "</td>
 \t\t\t\t\t<td>";
             // line 75

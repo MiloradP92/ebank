@@ -63,7 +63,7 @@ class __TwigTemplate_ba9657159c187c87c8afa10e45c8e81a0052b8d7369ae30e0bfd5d8bd37
         echo "</p>
 \t\t\t<p>Poslednji log in: ";
         // line 10
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "poslednji_log_in", [], "any", false, false, false, 10), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "poslednji_log_in_at", [], "any", false, false, false, 10), "html", null, true);
         echo "</p>\t
 \t\t</div>
 \t</div>

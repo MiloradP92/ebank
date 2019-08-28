@@ -73,8 +73,8 @@ class __TwigTemplate_317565726fa0e8a73e7f1c727e6beebf6cc3e860f43130e07356d774ee1
     {
         $macros = $this->macros;
         // line 14
-        echo "\t<div class=\"col-md-8 offset-md-5\" style=\"line-height:.5; color:#f2f2f2; padding-top: 20px\">
-\t\t<p>Osnovni tekuci racun</p>
+        echo "\t<div class=\"col-md-8 offset-md-5 basicinfo\">
+\t\t<p>Osnovni tekući račun</p>
 \t\t<p>";
         // line 16
         echo twig_escape_filter($this->env, ($context["osnovniracun"] ?? null), "html", null, true);
@@ -95,7 +95,7 @@ class __TwigTemplate_317565726fa0e8a73e7f1c727e6beebf6cc3e860f43130e07356d774ee1
         $macros = $this->macros;
         // line 22
         echo "
-<div class=\"row col-md-8 offset-md-2\" style=\"margin-top:20px\">
+<div class=\"row col-md-8 offset-md-2 msg\">
 \t<h2>";
         // line 24
         echo twig_escape_filter($this->env, ($context["message"] ?? null), "html", null, true);
@@ -112,17 +112,17 @@ class __TwigTemplate_317565726fa0e8a73e7f1c727e6beebf6cc3e860f43130e07356d774ee1
         $macros = $this->macros;
         // line 31
         echo "
-<div class=\"row text-center\" style=\"margin-bottom: 10px; background-color: #993399; color:white;\">
-\t<h5 style=\"padding-left: 5px\">Arhiva prenosa</h5>
+<div class=\"row text-center tran\">
+\t<h5 class=\"tran-h5\">Arhiva prenosa</h5>
 </div>
 
-<div class=\"row\" style=\"background-color: #993399; height: 358px;\">
-\t<table class=\"table\" style=\"font-size: 10px; color:white\">
+<div class=\"row tbl-wrapper\">
+\t<table class=\"table tran-table\">
 \t\t<thead>
 \t\t\t<tr>
 \t\t\t\t<th>Datum</th>
-\t\t\t\t<th>Sa racuna</th>
-\t\t\t\t<th>Na racun</th>
+\t\t\t\t<th>Sa računa</th>
+\t\t\t\t<th>Na račun</th>
 \t\t\t\t<th>Iznos</th>
 \t\t\t</th>
 \t\t</thead>

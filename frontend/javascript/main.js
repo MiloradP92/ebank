@@ -10,9 +10,12 @@ var promeniTekuciRacun = function () {
 	var racunId = $(this).val();
 	
 	$.get( "api/racun/" + racunId, function(data) {
+		
+		console.log(data);
+		
 		$('#tbl-tip').text(data.racun.tip_racuna);
 		$('#tbl-valuta').text(data.racun.valuta_racuna);
-		$('#tbl-datum').text(data.racun.datum_kreacije);
+		$('#tbl-datum').text(data.racun.datum_kreacije_at);
 		$('#tbl-stanje').text(data.stanje);
 		preuzmiInfoOTransakcijama(racunId);
 	});
@@ -27,7 +30,7 @@ var preuzmiInfoOTransakcijama = function (idRacuna) {
 		
 		data.transakcije.forEach(function (t) {
 			newRows += '<tr>';
-			newRows += '<td>' + t.datum_transakcije + '</td>';
+			newRows += '<td>' + t.datum_transakcije_at + '</td>';
 			newRows += '<td>' + t.opis + '</td>';
 			newRows += '<td>' + t.iznos_transakcije + '</td>';
 			newRows += '</tr>';

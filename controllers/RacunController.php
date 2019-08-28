@@ -16,7 +16,7 @@
 			$racunModel = new RacunModel($this->getDatabaseConnection());
 			$racuni = $racunModel->getAllById($userId);
 
-			$transakcije = $racunModel->getTransactionsByAccountId($racunModel->getDefaultAccountId($userId));	
+			$transakcije = $racunModel->getTransactionsByAccountId($racunModel->getDefaultAccountId($userId));
 
 			$userModel = new KorisnikModel($this->getDatabaseConnection());
 			$user = $userModel->getById($userId);

@@ -50,72 +50,74 @@ class __TwigTemplate_d57fa750498dd3e903c0bda80bc1de21af1a4e450c21f3088fb6e57612f
     {
         $macros = $this->macros;
         // line 4
-        echo "\t<div class=\"col-md-2\">
-\t\t<i class=\"fa fa-user-circle-o fa-3x\" aria-hidden=\"true\"></i>
-\t</div>
-\t<div class=\"col-md-10\">
-\t\t<p>";
-        // line 8
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "ime", [], "any", false, false, false, 8), "html", null, true);
-        echo " ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "prezime", [], "any", false, false, false, 8), "html", null, true);
-        echo "</p>
-\t\t<p>Poslednji Log In: ";
+        echo "\t<div class=\"row\">
+\t\t<div class=\"col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3\">
+\t\t\t<i class=\"fa fa-user-circle-o fa-3x\" aria-hidden=\"true\"></i>
+\t\t</div>
+\t\t<div class=\"col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9\">
+\t\t\t<p>";
         // line 9
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "poslednji_log_in", [], "any", false, false, false, 9), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "ime", [], "any", false, false, false, 9), "html", null, true);
+        echo " ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "prezime", [], "any", false, false, false, 9), "html", null, true);
         echo "</p>
+\t\t\t<p>Poslednji log in: ";
+        // line 10
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "poslednji_log_in_at", [], "any", false, false, false, 10), "html", null, true);
+        echo "</p>\t
+\t\t</div>
 \t</div>
 ";
     }
 
-    // line 13
+    // line 15
     public function block_basicinfo($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 14
-        echo "\t<div class=\"col-md-8 offset-md-5 basicinfo\">
+        // line 16
+        echo "\t<div class=\"col-12 col-sm-11 col-md-8 col-lg-8 col-xl-12 offset-1 offset-sm-1 offset-md-5 offset-lg-5 offset-xl-5 basicinfo\">
 \t\t<p>Osnovni tekući račun</p>
 \t\t<p>";
-        // line 16
+        // line 18
         echo twig_escape_filter($this->env, ($context["osnovniracun"] ?? null), "html", null, true);
         echo "</p>
 \t\t<p>";
-        // line 17
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "ime", [], "any", false, false, false, 17), "html", null, true);
+        // line 19
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "ime", [], "any", false, false, false, 19), "html", null, true);
         echo " ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "prezime", [], "any", false, false, false, 17), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "prezime", [], "any", false, false, false, 19), "html", null, true);
         echo "</p>
 \t</div>
 ";
     }
 
-    // line 21
+    // line 23
     public function block_main($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 22
+        // line 24
         echo "
-<div class=\"row col-md-8 offset-md-2 tek-rac\">
+<div class=\"row col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 offset-1 offset-sm-1 offset-md-2 offset-lg-2 offset-xl-2 tek-rac\">
 \t<select class=\"form-control tekuci-racuni\">
 \t\t";
-        // line 25
+        // line 27
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["racuni"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["racun"]) {
-            // line 26
+            // line 28
             echo "\t\t\t<option value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "id_racuna", [], "any", false, false, false, 26), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "id_racuna", [], "any", false, false, false, 28), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "broj_racuna", [], "any", false, false, false, 26), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "broj_racuna", [], "any", false, false, false, 28), "html", null, true);
             echo " (";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "valuta_racuna", [], "any", false, false, false, 26), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "valuta_racuna", [], "any", false, false, false, 28), "html", null, true);
             echo ")</option>
 \t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['racun'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 28
+        // line 30
         echo "\t</select>
 </div>\t\t\t\t\t
 
@@ -132,19 +134,19 @@ class __TwigTemplate_d57fa750498dd3e903c0bda80bc1de21af1a4e450c21f3088fb6e57612f
 \t\t<tbody>
 \t\t\t<tr>
 \t\t\t\t<td id='tbl-tip'>";
-        // line 43
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 = ($context["racuni"] ?? null)) && is_array($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4) || $__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 instanceof ArrayAccess ? ($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4[0] ?? null) : null), "tip_racuna", [], "any", false, false, false, 43), "html", null, true);
+        // line 45
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 = ($context["racuni"] ?? null)) && is_array($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4) || $__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 instanceof ArrayAccess ? ($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4[0] ?? null) : null), "tip_racuna", [], "any", false, false, false, 45), "html", null, true);
         echo "</td>
 \t\t\t\t<td id='tbl-valuta'>";
-        // line 44
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144 = ($context["racuni"] ?? null)) && is_array($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144) || $__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144 instanceof ArrayAccess ? ($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144[0] ?? null) : null), "valuta_racuna", [], "any", false, false, false, 44), "html", null, true);
+        // line 46
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144 = ($context["racuni"] ?? null)) && is_array($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144) || $__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144 instanceof ArrayAccess ? ($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144[0] ?? null) : null), "valuta_racuna", [], "any", false, false, false, 46), "html", null, true);
         echo "</td>
 \t\t\t\t<td id='tbl-datum'>";
-        // line 45
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (($__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b = ($context["racuni"] ?? null)) && is_array($__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b) || $__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b instanceof ArrayAccess ? ($__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b[0] ?? null) : null), "datum_kreacije", [], "any", false, false, false, 45), "html", null, true);
+        // line 47
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (($__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b = ($context["racuni"] ?? null)) && is_array($__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b) || $__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b instanceof ArrayAccess ? ($__internal_1cfccaec8dd2e8578ccb026fbe7f2e7e29ac2ed5deb976639c5fc99a6ea8583b[0] ?? null) : null), "datum_kreacije", [], "any", false, false, false, 47), "html", null, true);
         echo "</td>
 \t\t\t\t<td id='tbl-stanje'>";
-        // line 46
+        // line 48
         echo twig_escape_filter($this->env, ($context["stanje"] ?? null), "html", null, true);
         echo "</td>
 \t\t\t</tr>
@@ -155,56 +157,58 @@ class __TwigTemplate_d57fa750498dd3e903c0bda80bc1de21af1a4e450c21f3088fb6e57612f
 ";
     }
 
-    // line 54
+    // line 56
     public function block_rightpanel($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 55
+        // line 57
         echo "
-<div class=\"row text-center tran\">
-\t<h5 class=\"tran-h5\">Transakcije</h5>
-</div>
-
-<div class=\"row tbl-wrapper\">
-\t<table id='tran-tbl' class=\"table tran-table\">
-\t\t<thead>
-\t\t\t<tr>
-\t\t\t\t<th>Datum</th>
-\t\t\t\t<th>Opis</th>
-\t\t\t\t<th>Iznos</th>
-\t\t\t</th>
-\t\t</thead>
-\t\t<tbody>
-\t\t\t";
-        // line 70
+<div class=\"row\">
+\t<div class=\"h-25 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">
+\t\t<h5 class=\"tran-h5\">Transakcije</h5>
+\t</div>
+\t<div class=\"h-75 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 tbl-wrapper\">
+\t\t<table id='tran-tbl' class=\"table tran-table\">
+\t\t\t<thead>
+\t\t\t\t<tr>
+\t\t\t\t\t<th>Datum</th>
+\t\t\t\t\t<th>Opis</th>
+\t\t\t\t\t<th>Iznos</th>
+\t\t\t\t</th>
+\t\t\t</thead>
+\t\t\t<tbody>
+\t\t\t\t";
+        // line 72
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["transakcije"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["t"]) {
-            // line 71
-            echo "\t\t\t\t<tr>
-\t\t\t\t\t<td>";
-            // line 72
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["t"], "datum_transakcije", [], "any", false, false, false, 72), "html", null, true);
-            echo "</td>
-\t\t\t\t\t<td>";
             // line 73
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["t"], "opis", [], "any", false, false, false, 73), "html", null, true);
-            echo "</td>
-\t\t\t\t\t<td>";
+            echo "\t\t\t\t\t<tr>
+\t\t\t\t\t\t<td>";
             // line 74
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["t"], "iznos_transakcije", [], "any", false, false, false, 74), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["t"], "datum_transakcije_at", [], "any", false, false, false, 74), "html", null, true);
             echo "</td>
-\t\t\t\t</tr>
-\t\t\t";
+\t\t\t\t\t\t<td>";
+            // line 75
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["t"], "opis", [], "any", false, false, false, 75), "html", null, true);
+            echo "</td>
+\t\t\t\t\t\t<td>";
+            // line 76
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["t"], "iznos_transakcije", [], "any", false, false, false, 76), "html", null, true);
+            echo "</td>
+\t\t\t\t\t</tr>
+\t\t\t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['t'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 77
-        echo "\t\t</tbody>
-\t\t
-\t</table>\t\t\t\t\t
-</div>\t\t\t\t
+        // line 79
+        echo "\t\t\t</tbody>
+\t\t\t
+\t\t</table>\t\t\t\t\t
+\t</div>\t
+</div>
+\t\t\t
 
 ";
     }
@@ -221,7 +225,7 @@ class __TwigTemplate_d57fa750498dd3e903c0bda80bc1de21af1a4e450c21f3088fb6e57612f
 
     public function getDebugInfo()
     {
-        return array (  204 => 77,  195 => 74,  191 => 73,  187 => 72,  184 => 71,  180 => 70,  163 => 55,  159 => 54,  148 => 46,  144 => 45,  140 => 44,  136 => 43,  119 => 28,  106 => 26,  102 => 25,  97 => 22,  93 => 21,  84 => 17,  80 => 16,  76 => 14,  72 => 13,  65 => 9,  59 => 8,  53 => 4,  49 => 3,  38 => 1,);
+        return array (  206 => 79,  197 => 76,  193 => 75,  189 => 74,  186 => 73,  182 => 72,  165 => 57,  161 => 56,  150 => 48,  146 => 47,  142 => 46,  138 => 45,  121 => 30,  108 => 28,  104 => 27,  99 => 24,  95 => 23,  86 => 19,  82 => 18,  78 => 16,  74 => 15,  66 => 10,  60 => 9,  53 => 4,  49 => 3,  38 => 1,);
     }
 
     public function getSourceContext()

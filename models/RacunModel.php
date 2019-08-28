@@ -15,7 +15,7 @@
 
 		public function getById(int $idRacuna)
 		{
-			$sql = 'SELECT * FROM racun WHERE id = ?;';
+			$sql = 'SELECT * FROM racun WHERE racun_id = ?;';
 
 			$prep = $this->dbc->getConnection()->prepare($sql);
 			$res = $prep->execute([$idRacuna]);
@@ -31,9 +31,9 @@
 
 		public function getAllById(int $korisnickiId): array
 		{
-			$sql = 'SELECT r.id as id_racuna, r.broj_racuna as broj_racuna, tr.opis as tip_racuna, v.opis as valuta_racuna, r.datum_kreacije as datum_kreacije
-					FROM racun r JOIN tip_racuna tr ON r.tip_racuna = tr.id
-					JOIN valuta v ON r.valuta_racuna = v.id WHERE r.korisnicki_id = 1';
+			$sql = 'SELECT r.racun_id as id_racuna, r.broj_racuna as broj_racuna, tr.opis as tip_racuna, v.opis as valuta_racuna, r.datum_kreacije_at as datum_kreacije
+					FROM racun r JOIN tip_racuna tr ON r.tip_racuna_id = tr.tip_racuna_id
+					JOIN valuta v ON r.valuta_id = v.valuta_id WHERE r.korisnik_id = 1';
 			
 			$prep = $this->dbc->getConnection()->prepare($sql);
 
@@ -44,14 +44,14 @@
 			{
 				$racuni = $prep->fetchAll(\PDO::FETCH_OBJ);
 			}
-
+			
 			return $racuni;
 		}
 
 		public function getInfoById(int $id)
 		{
-			$sql = 'SELECT r.broj_racuna as broj_racuna, tr.opis as tip_racuna, v.opis as valuta_racuna, r.datum_kreacije as datum_kreacije
-					FROM racun r JOIN tip_racuna tr ON r.tip_racuna = tr.id JOIN valuta v ON r.valuta_racuna = v.id WHERE r.id = ?';
+			$sql = 'SELECT r.broj_racuna as broj_racuna, tr.opis as tip_racuna, v.opis as valuta_racuna, r.datum_kreacije_at as datum_kreacije
+					FROM racun r JOIN tip_racuna tr ON r.tip_racuna_id = tr.tip_racuna_id JOIN valuta v ON r.valuta_id = v.valuta_id WHERE r.racun_id = ?';
 
 			$prep = $this->dbc->getConnection()->prepare($sql);
 			$res = $prep->execute([$id]);
@@ -68,7 +68,7 @@
 
 		public function getTransactionsByAccountId(int $id)
 		{
-			$sql = 'SELECT * FROM transakcije WHERE id_racuna = ?';
+			$sql = 'SELECT * FROM transakcije WHERE racun_id = ?';
 
 			$prep = $this->dbc->getConnection()->prepare($sql);
 			$res = $prep->execute([$id]);
@@ -86,7 +86,7 @@
 
 		public function getDefaultAccountId(int $korisnickiId)
 		{
-			$sql = 'SELECT id FROM racun WHERE korisnicki_id = ? and tip_racuna = 1 order by id limit 1';
+			$sql = 'SELECT racun_id FROM racun WHERE korisnik_id = ? and tip_racuna_id = 1 order by racun_id limit 1';
 			
 			$prep = $this->dbc->getConnection()->prepare($sql);
 			$res = $prep->execute([$korisnickiId]);
@@ -98,7 +98,7 @@
 				$info = $prep->fetch(\PDO::FETCH_OBJ);
 			}		
 
-			return $info->id;
+			return $info->racun_id;
 		}
 
 		public function izvrsiPrenos(int $targetRacun, int $destRacun, float $suma)
@@ -120,7 +120,7 @@
 			$kursZaDestValutu = $this->izracunajKursZaValutu($valutaDestRacuna);
 			$finalnaDestVrednost = $kursZaDestValutu != 0 ? $sumaUDinarima / $kursZaDestValutu : 0;
 
-			$sql = 'INSERT into transakcije (id_racuna, iznos_transakcije, opis, tip_transakcije, datum_transakcije, id_racuna_prenos, vrednost_u_valuti_prenosa)
+			$sql = 'INSERT into transakcije (racun_id, iznos_transakcije, opis, tip_transakcije_id, datum_transakcije_at, racun_id_prenos, vrednost_u_valuti_prenosa)
 					values (?, ?, ?, ?, ?, ?, ?)';
 
 			$prep = $this->dbc->getConnection()->prepare($sql);
@@ -131,9 +131,9 @@
 		public function izracunajStanjePoRacunu(int $racunId)
 		{
 			$sql = 'select
-					(select ifnull(sum(iznos_transakcije), 0) from transakcije where id_racuna = ? and tip_transakcije = 2) +
-					(select ifnull(sum(vrednost_u_valuti_prenosa), 0) from transakcije where id_racuna_prenos = ? and tip_transakcije = 3) -
-					(select ifnull(sum(iznos_transakcije), 0) from transakcije where id_racuna = ? and (tip_transakcije = 1 or tip_transakcije = 3)) as balance';
+					(select ifnull(sum(iznos_transakcije), 0) from transakcije where racun_id = ? and tip_transakcije_id = 2) +
+					(select ifnull(sum(vrednost_u_valuti_prenosa), 0) from transakcije where racun_id_prenos = ? and tip_transakcije_id = 3) -
+					(select ifnull(sum(iznos_transakcije), 0) from transakcije where racun_id = ? and (tip_transakcije_id = 1 or tip_transakcije_id = 3)) as balance';
 
 			$prep = $this->dbc->getConnection()->prepare($sql);
 			$res = $prep->execute([$racunId, $racunId, $racunId]);
@@ -150,7 +150,7 @@
 
 		public function odrediValutuZaRacun(int $racunId)
 		{
-			$sql = 'SELECT valuta_racuna FROM racun WHERE id = ?';
+			$sql = 'SELECT valuta_id FROM racun WHERE racun_id = ?';
 
 			$prep = $this->dbc->getConnection()->prepare($sql);
 			$res = $prep->execute([$racunId]);
@@ -162,12 +162,12 @@
 				$info = $prep->fetch(\PDO::FETCH_OBJ);
 			}		
 
-			return $info->valuta_racuna;		
+			return $info->valuta_id;		
 		}
 
 		public function izracunajKursZaValutu(int $valuta)
 		{
-			$sql = 'SELECT iznos FROM kurs WHERE id_valute = ?';
+			$sql = 'SELECT iznos FROM kurs WHERE valuta_id = ?';
 
 			$prep = $this->dbc->getConnection()->prepare($sql);
 			$res = $prep->execute([$valuta]);
@@ -184,11 +184,11 @@
 
 		public function getTransferArchive(int $korisnickiId)
 		{
-			$sql = 'SELECT transakcije.datum_transakcije, r1.broj_racuna as sa_racuna, r2.broj_racuna na_racun, transakcije.iznos_transakcije
-					FROM transakcije JOIN racun r1 ON transakcije.id_racuna = r1.id
-					JOIN racun r2 ON transakcije.id_racuna_prenos = r2.id
-					WHERE id_racuna in (SELECT distinct id FROM racun WHERE korisnicki_id = ?)
-					AND (tip_transakcije = 3 OR tip_transakcije = 4)';
+			$sql = 'SELECT transakcije.datum_transakcije_at, r1.broj_racuna as sa_racuna, r2.broj_racuna na_racun, transakcije.iznos_transakcije
+					FROM transakcije JOIN racun r1 ON transakcije.racun_id = r1.racun_id
+					JOIN racun r2 ON transakcije.racun_id_prenos = r2.racun_id
+					WHERE r1.racun_id in (SELECT distinct racun_id FROM racun WHERE korisnik_id = ?)
+					AND (tip_transakcije_id = 3 OR tip_transakcije_id = 4)';
 
 			$prep = $this->dbc->getConnection()->prepare($sql);
 			$res = $prep->execute([$korisnickiId]);
@@ -199,7 +199,7 @@
 			{
 				$info = $prep->fetchAll(\PDO::FETCH_OBJ);
 			}
-
+			
 			return $info;
 
 		}

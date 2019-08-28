@@ -1,13 +1,17 @@
 {% extends "_global/index.html" %}
 
 {% block lastlogin %}
-	<div class="col-md-2">
+
+<div class="row">
+	<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
 		<i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
 	</div>
-	<div class="col-md-10">
+	<div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
 		<p>{{user.ime}} {{user.prezime}}</p>
-		<p>Poslednji Log In: {{user.poslednji_log_in}}</p>
+		<p>Poslednji log in: {{user.poslednji_log_in}}</p>	
 	</div>
+</div>
+	
 {% endblock %}
 
 {% block basicinfo %}

@@ -1,17 +1,19 @@
 {% extends "_global/index.html" %}
 
 {% block lastlogin %}
-	<div class="col-md-2">
-		<i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
-	</div>
-	<div class="col-md-8">
-		<p>{{user.ime}} {{user.prezime}}</p>
-		<p>Poslednji Log In: {{user.poslednji_log_in}}</p>
+	<div class="row">
+		<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+			<i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+		</div>
+		<div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+			<p>{{user.ime}} {{user.prezime}}</p>
+			<p>Poslednji log in: {{user.poslednji_log_in}}</p>	
+		</div>
 	</div>
 {% endblock %}
 
 {% block basicinfo %}
-	<div class="col-md-8 offset-md-5 basicinfo">
+	<div class="col-12 col-sm-11 col-md-8 col-lg-8 col-xl-12 offset-1 offset-sm-1 offset-md-5 offset-lg-5 offset-xl-5 basicinfo">
 		<p>Osnovni tekući račun</p>
 		<p>{{osnovniracun}}</p>
 		<p>{{user.ime}} {{user.prezime}}</p>
@@ -20,7 +22,7 @@
 
 {% block main %}
 
-<div class="text-center osnovno-stanje">
+<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center osnovno-stanje">
 	<p>Stanje na osnovnom računu</p>
 	<p style="font-size: 25px;">{{stanje}}<p>
 	<hr />
@@ -31,31 +33,33 @@
 
 {% block rightpanel %}
 
-<div class="row text-center tran">
-	<h5 class="tran-h5">Transakcije (osnovni račun)</h5>
-</div>
-
-<div class="row tbl-wrapper">
-	<table id='tran-tbl' class="table tran-table">
-		<thead>
-			<tr>
-				<th>Datum</th>
-				<th>Opis</th>
-				<th>Iznos</th>
-			</th>
-		</thead>
-		<tbody>
-			{% for t in transakcije %}
+<div class="row h-100">
+	<div class="h-25 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 tran">
+		<h5 class="tran-h5">Transakcije (osnovni račun)</h5>
+	</div>
+	
+	<div class="h-75 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 tbl-wrapper">
+		<table id='tran-tbl' class="table tran-table">
+			<thead>
 				<tr>
-					<td>{{t.datum_transakcije}}</td>
-					<td>{{t.opis}}</td>
-					<td>{{t.iznos_transakcije}}</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-		
-	</table>					
-</div>				
+					<th>Datum</th>
+					<th>Opis</th>
+					<th>Iznos</th>
+				</th>
+			</thead>
+			<tbody>
+				{% for t in transakcije %}
+					<tr>
+						<td>{{t.datum_transakcije}}</td>
+						<td>{{t.opis}}</td>
+						<td>{{t.iznos_transakcije}}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			
+		</table>					
+	</div>
+</div>
 
 {% endblock %}
 

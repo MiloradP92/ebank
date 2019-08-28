@@ -23,6 +23,7 @@ a:link {
 }
 .center-box { 
   position: relative;
+  height: 400px;
 }
 
 .center {
@@ -42,8 +43,8 @@ a:link {
 	color:#660066;
 }
 .info-bar-inner {
-	padding-top:35px;
 	line-height:.5;
+	padding-top: 35px;
 }
 .up-banner {
 	background-color: #660066;
@@ -64,9 +65,9 @@ a:link {
 	background-color:ffe6ff;
 }
 .right-menu {
-	padding-left:10px;
+	background-color: #d98cd9;
 }
-.fotter {
+.footer {
 	background-color:#660066;
 	height: 50px;
 }
@@ -81,23 +82,15 @@ a:link {
 }
 .osnovno-stanje {
 	color:white;
-	margin-top:100px;
-}
-.tran {
-	margin-bottom: 10px;
-	background-color: #993399;
-	color:white;
+	margin-top:50px;
 }
 .tran-h5 {
 	padding-left: 5px;
 }
 .tbl-wrapper {
-	background-color: #993399;
-	height: 358px;
 }
 .tran-table {
 	font-size: 12px;
-	color:white;
 }
 .pic-wrapper {
 	color:white;

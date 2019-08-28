@@ -50,50 +50,54 @@ class __TwigTemplate_a61749177d71f639eef74c72f0aad64dfc4b49c3a4b46adbec46b40bda8
     {
         $macros = $this->macros;
         // line 4
-        echo "\t<div class=\"col-md-2\">
+        echo "
+<div class=\"row\">
+\t<div class=\"col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3\">
 \t\t<i class=\"fa fa-user-circle-o fa-3x\" aria-hidden=\"true\"></i>
 \t</div>
-\t<div class=\"col-md-10\">
+\t<div class=\"col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9\">
 \t\t<p>";
-        // line 8
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "ime", [], "any", false, false, false, 8), "html", null, true);
+        // line 10
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "ime", [], "any", false, false, false, 10), "html", null, true);
         echo " ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "prezime", [], "any", false, false, false, 8), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "prezime", [], "any", false, false, false, 10), "html", null, true);
         echo "</p>
-\t\t<p>Poslednji Log In: ";
-        // line 9
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "poslednji_log_in", [], "any", false, false, false, 9), "html", null, true);
-        echo "</p>
+\t\t<p>Poslednji log in: ";
+        // line 11
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "poslednji_log_in", [], "any", false, false, false, 11), "html", null, true);
+        echo "</p>\t
 \t</div>
+</div>
+\t
 ";
     }
 
-    // line 13
+    // line 17
     public function block_basicinfo($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 14
+        // line 18
         echo "\t<div class=\"col-md-8 offset-md-5 basicinfo\">
 \t\t<p>Osnovni tekući račun</p>
 \t\t<p>";
-        // line 16
+        // line 20
         echo twig_escape_filter($this->env, ($context["osnovniracun"] ?? null), "html", null, true);
         echo "</p>
 \t\t<p>";
-        // line 17
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "ime", [], "any", false, false, false, 17), "html", null, true);
+        // line 21
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "ime", [], "any", false, false, false, 21), "html", null, true);
         echo " ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "prezime", [], "any", false, false, false, 17), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "prezime", [], "any", false, false, false, 21), "html", null, true);
         echo "</p>
 \t</div>
 ";
     }
 
-    // line 21
+    // line 25
     public function block_main($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 22
+        // line 26
         echo "
 <div class=\"row col-md-8 offset-md-2 form-wrapper\">
 \t<form id='prenos-frm' action='zapocni_prenos' method='post'>
@@ -101,48 +105,48 @@ class __TwigTemplate_a61749177d71f639eef74c72f0aad64dfc4b49c3a4b46adbec46b40bda8
 \t\t\t<label>Račun na teret</label>
 \t\t\t<select class=\"form-control\" name=\"target_racun\" id='target-racun'>
 \t\t\t\t";
-        // line 28
+        // line 32
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["racuni"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["racun"]) {
-            // line 29
+            // line 33
             echo "\t\t\t\t\t<option value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "id_racuna", [], "any", false, false, false, 29), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "id_racuna", [], "any", false, false, false, 33), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "broj_racuna", [], "any", false, false, false, 29), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "broj_racuna", [], "any", false, false, false, 33), "html", null, true);
             echo " (";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "valuta_racuna", [], "any", false, false, false, 29), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "valuta_racuna", [], "any", false, false, false, 33), "html", null, true);
             echo ")</option>
 \t\t\t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['racun'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
+        // line 35
         echo "\t\t\t</select>
 \t\t</div>
 \t\t<div class=\"form-group\">
 \t\t\t<label>Račun u korist</label>
 \t\t\t<select class=\"form-control\" name=\"dest_racun\" id='dest-racun'>
 \t\t\t\t";
-        // line 36
+        // line 40
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["racuni"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["racun"]) {
-            // line 37
+            // line 41
             echo "\t\t\t\t\t<option value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "id_racuna", [], "any", false, false, false, 37), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "id_racuna", [], "any", false, false, false, 41), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "broj_racuna", [], "any", false, false, false, 37), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "broj_racuna", [], "any", false, false, false, 41), "html", null, true);
             echo " (";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "valuta_racuna", [], "any", false, false, false, 37), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["racun"], "valuta_racuna", [], "any", false, false, false, 41), "html", null, true);
             echo ")</option>
 \t\t\t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['racun'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 43
         echo "\t\t\t</select>
 \t\t</div>
 \t\t<div class=\"form-group\">
@@ -157,11 +161,11 @@ class __TwigTemplate_a61749177d71f639eef74c72f0aad64dfc4b49c3a4b46adbec46b40bda8
 ";
     }
 
-    // line 52
+    // line 56
     public function block_rightpanel($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 53
+        // line 57
         echo "
 <div class=\"row text-center tran\">
 \t<h5 class=\"tran-h5\">Arhiva prenosa</h5>
@@ -179,27 +183,27 @@ class __TwigTemplate_a61749177d71f639eef74c72f0aad64dfc4b49c3a4b46adbec46b40bda8
 \t\t</thead>
 \t\t<tbody>
 \t\t\t";
-        // line 69
+        // line 73
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["arhiva"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["a"]) {
-            // line 70
+            // line 74
             echo "\t\t\t<tr>
 \t\t\t\t<td>";
-            // line 71
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["a"], "datum_transakcije", [], "any", false, false, false, 71), "html", null, true);
+            // line 75
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["a"], "datum_transakcije", [], "any", false, false, false, 75), "html", null, true);
             echo "</td>
 \t\t\t\t<td>";
-            // line 72
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["a"], "sa_racuna", [], "any", false, false, false, 72), "html", null, true);
+            // line 76
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["a"], "sa_racuna", [], "any", false, false, false, 76), "html", null, true);
             echo "</td>
 \t\t\t\t<td>";
-            // line 73
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["a"], "na_racun", [], "any", false, false, false, 73), "html", null, true);
+            // line 77
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["a"], "na_racun", [], "any", false, false, false, 77), "html", null, true);
             echo "</td>
 \t\t\t\t<td>";
-            // line 74
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["a"], "iznos_transakcije", [], "any", false, false, false, 74), "html", null, true);
+            // line 78
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["a"], "iznos_transakcije", [], "any", false, false, false, 78), "html", null, true);
             echo "</td>
 \t\t\t</tr>
 \t\t\t";
@@ -207,7 +211,7 @@ class __TwigTemplate_a61749177d71f639eef74c72f0aad64dfc4b49c3a4b46adbec46b40bda8
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['a'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 77
+        // line 81
         echo "\t\t</tbody>\t\t\t\t\t\t\t\t
 \t</table>\t\t\t\t\t
 </div>
@@ -226,7 +230,7 @@ class __TwigTemplate_a61749177d71f639eef74c72f0aad64dfc4b49c3a4b46adbec46b40bda8
 
     public function getDebugInfo()
     {
-        return array (  211 => 77,  202 => 74,  198 => 73,  194 => 72,  190 => 71,  187 => 70,  183 => 69,  165 => 53,  161 => 52,  146 => 39,  133 => 37,  129 => 36,  122 => 31,  109 => 29,  105 => 28,  97 => 22,  93 => 21,  84 => 17,  80 => 16,  76 => 14,  72 => 13,  65 => 9,  59 => 8,  53 => 4,  49 => 3,  38 => 1,);
+        return array (  215 => 81,  206 => 78,  202 => 77,  198 => 76,  194 => 75,  191 => 74,  187 => 73,  169 => 57,  165 => 56,  150 => 43,  137 => 41,  133 => 40,  126 => 35,  113 => 33,  109 => 32,  101 => 26,  97 => 25,  88 => 21,  84 => 20,  80 => 18,  76 => 17,  67 => 11,  61 => 10,  53 => 4,  49 => 3,  38 => 1,);
     }
 
     public function getSourceContext()

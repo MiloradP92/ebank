@@ -77,7 +77,7 @@ class __TwigTemplate_c5d2ef82431b8ebab5906acba77d57801be5fda5f0bd51a5d1b36547523
 \t</div>
 
 \t<div class=\"form-group\">
-\t\t<label for=\"input_lozinka\">Lozinka:</label>
+\t\t<label for=\"input_password\">Lozinka:</label>
 \t\t<input class=\"form-control\" type=\"password\" id=\"input_password\" name=\"login_password\" required placeholder=\"Unesite svoju lozinku\">\t\t
 \t</div>
 \t

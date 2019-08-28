@@ -129,7 +129,7 @@ class __TwigTemplate_d57fa750498dd3e903c0bda80bc1de21af1a4e450c21f3088fb6e57612f
 \t\t\t\t<th>Valuta računa</th>
 \t\t\t\t<th>Datum otvaranja</th>
 \t\t\t\t<th>Trenutno stanje</th>
-\t\t\t</th>
+\t\t\t</tr>
 \t\t</thead>
 \t\t<tbody>
 \t\t\t<tr>
@@ -165,7 +165,7 @@ class __TwigTemplate_d57fa750498dd3e903c0bda80bc1de21af1a4e450c21f3088fb6e57612f
         echo "
 <div class=\"row\">
 \t<div class=\"h-25 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">
-\t\t<h5 class=\"tran-h5\">Transakcije</h5>
+\t\t<p class=\"tran-h5\">Transakcije</p>
 \t</div>
 \t<div class=\"h-75 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 tbl-wrapper\">
 \t\t<table id='tran-tbl' class=\"table tran-table\">
@@ -174,7 +174,7 @@ class __TwigTemplate_d57fa750498dd3e903c0bda80bc1de21af1a4e450c21f3088fb6e57612f
 \t\t\t\t\t<th>Datum</th>
 \t\t\t\t\t<th>Opis</th>
 \t\t\t\t\t<th>Iznos</th>
-\t\t\t\t</th>
+\t\t\t\t</tr>
 \t\t\t</thead>
 \t\t\t<tbody>
 \t\t\t\t";

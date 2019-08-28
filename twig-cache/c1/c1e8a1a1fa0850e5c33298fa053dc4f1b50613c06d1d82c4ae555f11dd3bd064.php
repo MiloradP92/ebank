@@ -75,7 +75,7 @@ class __TwigTemplate_73b66a9a321e4d53fa1b74352f2cdc178dc88c70f7c0cde055c87bb7a55
         $this->displayBlock('basicinfo', $context, $blocks);
         // line 33
         echo "\t\t\t</div>
-\t\t\t<div class=\"row menu-container\" style=\"background-color:green\">
+\t\t\t<div class=\"row menu-container\">
 \t\t\t\t<div class=\"h-100 col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 left-menu\">
 \t\t\t\t\t<ul style=\"list-style-type: none\">
 \t\t\t\t\t\t<li><a href=\"ebank_app\">Stanje</a></li>
@@ -84,7 +84,7 @@ class __TwigTemplate_73b66a9a321e4d53fa1b74352f2cdc178dc88c70f7c0cde055c87bb7a55
 \t\t\t\t\t\t<li><a href=\"nalog\">Nalog</a></li>
 \t\t\t\t\t</ul>
 \t\t\t\t</div>
-\t\t\t\t<div class=\"h-100 col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 middle-space center-box\">\t\t\t\t\t
+\t\t\t\t<div class=\"h-100 col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 middle-space\">\t\t\t\t\t
 \t\t\t\t\t";
         // line 44
         $this->displayBlock('main', $context, $blocks);
@@ -102,8 +102,8 @@ class __TwigTemplate_73b66a9a321e4d53fa1b74352f2cdc178dc88c70f7c0cde055c87bb7a55
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t\t<div class=\"row footer\" style=\"background-color: red\">
-\t\t\t\t<div class=\"col-12 col-sm-1 col-md-8 col-lg-6 col-xl-6 offset-1 offset-sm-2 offset-md-4 offset-lg-5 offset-xl-5 social\">
+\t\t\t<div class=\"row footer\">
+\t\t\t\t<div class=\"h-100 col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6 offset-1 offset-sm-2 offset-md-4 offset-lg-5 offset-xl-5 social\">
 \t\t\t\t\t<span class=\"ftr-brand\"><a href=\"www.facebook.com\"><i class=\"fa fa-facebook\" aria-hidden=\"true\"></i></a></span>
 \t\t\t\t\t<span class=\"ftr-brand\"><a href=\"www.twitter.com\"><i class=\"fa fa-twitter\" aria-hidden=\"true\"></i></span>
 \t\t\t\t\t<span class=\"ftr-brand\"><a href=\"www.linkedin.com\"><i class=\"fa fa-linkedin\" aria-hidden=\"true\"></i></span>

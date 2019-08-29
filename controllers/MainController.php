@@ -19,15 +19,24 @@
 			$password = \filter_input(INPUT_POST, 'login_password', FILTER_SANITIZE_STRING);
 			
 			$validator = new \App\Validators\StringValidator();
+			$emailValidator = new \App\Validators\EmailValidator();
 			
-			$validanPassword = $validator->setMinLength(7)->setMaxLength(120)->isValid($password);
+			$validanPassword = $validator->setMinLength(7)->setMaxLength(120)->isValid($password);				
 				
 			if (!$validanPassword)
 			{				
 				$this->set('message', 'Doslo je do greske: Lozinka nije ispravnog formata');
 				return;
 			}
-
+			
+			$validanEmail = $emailValidator->isValid($username);				
+				
+			if (!$validanEmail)
+			{				
+				$this->set('message', 'Doslo je do greske: Username nije ispravnog formata');
+				return;
+			}
+			
 			$userModel = new \App\Models\KorisnikModel($this->getDatabaseConnection());
 	
 			$user = $userModel->getByFieldName('email', $username);		

@@ -113,7 +113,7 @@ class __TwigTemplate_ba9657159c187c87c8afa10e45c8e81a0052b8d7369ae30e0bfd5d8bd37
         echo "
 <div class=\"row h-100\">
 \t<div class=\"h-25 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 tran\">
-\t\t<h5 class=\"tran-h5\">Osnovni podaci</h5>
+\t\t<p class=\"tran-h5\">Osnovni podaci</p>
 \t</div>
 \t
 \t<div class=\"h-75 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 tbl-wrapper\">

@@ -38,7 +38,7 @@ class __TwigTemplate_73b66a9a321e4d53fa1b74352f2cdc178dc88c70f7c0cde055c87bb7a55
     {
         $macros = $this->macros;
         // line 1
-        echo "<!doctype html>
+        echo "<!DOCTYPE html>
 <html>
 
 \t<head>
@@ -105,9 +105,9 @@ class __TwigTemplate_73b66a9a321e4d53fa1b74352f2cdc178dc88c70f7c0cde055c87bb7a55
 \t\t\t<div class=\"row footer\">
 \t\t\t\t<div class=\"h-100 col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6 offset-1 offset-sm-2 offset-md-4 offset-lg-5 offset-xl-5 social\">
 \t\t\t\t\t<span class=\"ftr-brand\"><a href=\"www.facebook.com\"><i class=\"fa fa-facebook\" aria-hidden=\"true\"></i></a></span>
-\t\t\t\t\t<span class=\"ftr-brand\"><a href=\"www.twitter.com\"><i class=\"fa fa-twitter\" aria-hidden=\"true\"></i></span>
-\t\t\t\t\t<span class=\"ftr-brand\"><a href=\"www.linkedin.com\"><i class=\"fa fa-linkedin\" aria-hidden=\"true\"></i></span>
-\t\t\t\t\t<span class=\"ftr-brand\"><a href=\"www.youtube.com\"><i class=\"fa fa-youtube-play\" aria-hidden=\"true\"></i></span>
+\t\t\t\t\t<span class=\"ftr-brand\"><a href=\"www.twitter.com\"><i class=\"fa fa-twitter\" aria-hidden=\"true\"></i></a></span>
+\t\t\t\t\t<span class=\"ftr-brand\"><a href=\"www.linkedin.com\"><i class=\"fa fa-linkedin\" aria-hidden=\"true\"></i></a></span>
+\t\t\t\t\t<span class=\"ftr-brand\"><a href=\"www.youtube.com\"><i class=\"fa fa-youtube-play\" aria-hidden=\"true\"></i></a></span>
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>\t\t\t\t\t\t\t\t

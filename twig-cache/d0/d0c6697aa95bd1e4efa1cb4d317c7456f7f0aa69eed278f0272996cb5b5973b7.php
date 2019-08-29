@@ -118,7 +118,7 @@ class __TwigTemplate_bf9089b330b3307159796fcc810850916e5bd9a9120011366a074197b6e
         echo "
 <div class=\"row h-100\">
 \t<div class=\"h-25 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 tran\">
-\t\t<h5 class=\"tran-h5\">Transakcije (osnovni račun)</h5>
+\t\t<p class=\"tran-h5\">Transakcije (osnovni račun)</p>
 \t</div>
 \t
 \t<div class=\"h-75 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 tbl-wrapper\">
@@ -128,7 +128,7 @@ class __TwigTemplate_bf9089b330b3307159796fcc810850916e5bd9a9120011366a074197b6e
 \t\t\t\t\t<th>Datum</th>
 \t\t\t\t\t<th>Opis</th>
 \t\t\t\t\t<th>Iznos</th>
-\t\t\t\t</th>
+\t\t\t\t</tr>
 \t\t\t</thead>
 \t\t\t<tbody>
 \t\t\t\t";
